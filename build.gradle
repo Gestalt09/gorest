@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:2.4.34"
+        classpath "net.serenity-bdd:serenity-single-page-report:2.1.4"
+    }
+}
+
+group 'com.api.core'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+    maven { url "https://plugins.gradle.org/m2/" }
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+dependencies {
+    implementation 'com.rongzhiweilai.extension:spring-annotation-extension:0.1.0-releases'
+    implementation 'au.com.dius:pact-jvm-provider-junit5-spring:4.0.10'
+    implementation 'com.github.davidrobbo:bounce:0.0.2'
+    compile 'net.serenity-bdd:serenity-core:2.1.4'
+    compile 'net.serenity-bdd:serenity-rest-assured:2.1.4'
+    compile 'net.serenity-bdd:serenity-cucumber:1.9.51'
+    compile 'org.slf4j:slf4j-simple:1.6.1'
+    compile 'org.json:json:20170516'
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test {
+    systemProperties System.getProperties()
+    ignoreFailures = true
+    testLogging.showStandardStreams = true
+    test.reports.getHtml().enabled = false
+    test.reports.junitXml.enabled = false
+    include 'com/gorestcore/serenityRunner/TestRunner.class'
+}
+
+serenity {
+    reports = ["single-page-html"]
+}
+allprojects {
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked"
+        }
+    }
+
+}

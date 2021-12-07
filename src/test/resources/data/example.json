@@ -1,0 +1,12 @@
+{
+  "coupon_amount": 333,
+  "order_id": "AGD784848482323",
+  "to_country": "US",
+  "to_zip": "$ZIP",
+  "to_city": "$CITY",
+  "to_state": "$STATE",
+  "to_street": "904 Valdemara Street",
+  "amount": 220.00,
+  "order_channel": "TEST",
+  "payment_type": "PayPal"
+}
