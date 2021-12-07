@@ -11,4 +11,3 @@ Feature: user
       | gender |
       | status |
       | email |
-

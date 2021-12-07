@@ -17,7 +17,7 @@ import java.util.Properties;
 @CucumberOptions(
         features = {"src/test/resources/features"},
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber-report.json"},
-        glue = {"com.goapicore.gherkinsDefinitions", "com.goapicore.hooks"}
+        glue = {"com.gorestcore.gherkinsDefinitions", "com.gorestcore.hooks"}
 )
 public class TestRunner {
 
