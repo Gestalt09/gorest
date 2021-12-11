@@ -24,11 +24,12 @@ apply plugin: 'net.serenity-bdd.aggregator'
 dependencies {
     implementation 'com.rongzhiweilai.extension:spring-annotation-extension:0.1.0-releases'
     implementation 'au.com.dius:pact-jvm-provider-junit5-spring:4.0.10'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.0.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.0.3'
     implementation 'com.github.davidrobbo:bounce:0.0.2'
     compile 'net.serenity-bdd:serenity-core:2.1.4'
     compile 'net.serenity-bdd:serenity-rest-assured:2.1.4'
     compile 'net.serenity-bdd:serenity-cucumber:1.9.51'
-    compile 'org.slf4j:slf4j-simple:1.6.1'
     compile 'org.json:json:20170516'
 }
 
